@@ -3,43 +3,31 @@ package Utilities;
 public class Client {
     private String name;
     private String phone;
-    private String adress;
+    private String address;
 
-    public Client(String name, String phone, String adress) {
+    public Client(String name, String phone, String address) {
         this.name = name;
         this.phone = phone;
-        this.adress = adress;
+        this.address = address;
     }
 
-    public String getName() {
-        return name;
-    }
+    public String getName() { return name; }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+    public void setName(String name) { this.name = name; }
 
-    public String getPhone() {
-        return phone;
-    }
+    public String getPhone() { return phone; }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
+    public void setPhone(String phone) { this.phone = phone; }
 
-    public String getAdress() {
-        return adress;
-    }
+    public String getAddress() { return address; }
 
-    public void setAdress(String adress) {
-        this.adress = adress;
-    }
+    public void setAddress(String address) { this.address = address; }
 
     @Override
     public String toString() {
         return "Cliente: \n" +
                 "   Nombre:" + name + '\n'+
                 "   Telefono: " + phone + '\n' +
-                "   Direccion: " + adress+"\n";
+                "   Direccion: " + address+"\n";
     }
 }

@@ -6,17 +6,15 @@ public  class Film {
     private int duration;
     private int stock;
     private String title;
-    private String classification;
-    private String genre;
+    private Audience audience;
+    private MovieGenre genre;
     private LocalDate releaseDate;
 
-
-
-    public Film(int duration,int stock, String title, String classification, String genre, LocalDate releaseDate) {
+    public Film (int duration,int stock, String title, Audience audience, MovieGenre genre, LocalDate releaseDate) {
         this.duration = duration;
         this.stock = stock;
         this.title = title;
-        this.classification = classification;
+        this.audience = audience;
         this.genre = genre;
         this.releaseDate = releaseDate;
     }
@@ -37,20 +35,20 @@ public  class Film {
         this.title = title;
     }
 
-    public String getGenre() {
+    public MovieGenre getGenre() {
         return genre;
     }
 
-    public void setGenre(String genre) {
+    public void setGenre(MovieGenre genre) {
         this.genre = genre;
     }
 
-    public String getClassification() {
-        return classification;
+    public Audience getClassification() {
+        return audience;
     }
 
-    public void setClassification(String classification) {
-        this.classification = classification;
+    public void setClassification(Audience audience) {
+        this.audience = audience;
     }
 
     public int getStock() {
@@ -74,7 +72,7 @@ public  class Film {
         return "Pelicula: \n" +
                 "   Titulo: " + title + '\n'+
                 "   Duracion: " + duration + " minutos" + '\n' +
-                "   Clasificacion de Audiencia: " + classification + '\n' +
+                "   Clasificacion de Audiencia: " + audience + '\n' +
                 "   Genero: " + genre + '\n' +
                 "   Fecha de estreno: " + releaseDate + '\n' +
                 "   En stock: "  + stock +

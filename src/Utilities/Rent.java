@@ -5,10 +5,10 @@ import java.time.LocalDate;
 public class Rent {
     private static int i = 1;
 
-
     private int id;
     private Film film;
     private Client client;
+    private Condition condition;
     private LocalDate rentDate;
     private LocalDate returnDate;
 
@@ -17,11 +17,11 @@ public class Rent {
         this.film = film;
         this.client = client;
         this.rentDate = rentDate;
+        this.condition = Condition.ALQUILADO;
         this.returnDate = rentDate.plusDays(2);
     }
 
-    public Rent() {
-    }
+    public Rent() { }
 
     public Film getFilm() {
         return film;
@@ -38,6 +38,10 @@ public class Rent {
     public void setClient(Client client) {
         this.client = client;
     }
+
+    public Condition getCondition(){return condition;}
+
+    public void setCondition(Condition condition){this.condition = condition;}
 
     public LocalDate getRentDate() {
         return rentDate;
