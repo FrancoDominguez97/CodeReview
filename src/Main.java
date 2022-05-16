@@ -18,6 +18,6 @@ public class Main {
         video.rentFilm(pelicula1.getTitle(),client1.getName());
         video.rentFilm(pelicula2.getTitle(), client2.getName());
 
-        System.out.println(video.getRentList());
+        video.getRentList();
     }
 }

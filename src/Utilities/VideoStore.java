@@ -19,7 +19,12 @@ public class VideoStore {
     public List<Client>getClientList(){return clientList;}
 
     //Ver los alquileres vigentes
-    public List<Rent> getRentList(){return rentList;}
+    public void getRentList(){
+        for (Rent rent : rentList) {
+            if (rent.getCondition() == Condition.ALQUILADO)
+                System.out.println(rent.toString());
+        }
+    }
 
     public List<Film>getFilmsList(){return filmsList;}
 
@@ -52,13 +57,6 @@ public class VideoStore {
         return null;
     }
 
-    public Rent searchRentById(int rentId){
-        for (Rent searchRent:rentList) {
-            if (searchRent != null && searchRent.getId() == rentId)
-                return searchRent;
-        }
-        return null;
-    }
     public void deleteRent(int rentId){
         for (Rent rent : rentList) {
             if (rent != null && rent.getId() == rentId){
@@ -80,20 +78,17 @@ public class VideoStore {
      return null;
     }
 
-    public void returnFilm(int rentId){
-        Rent rentFound = searchRentById(rentId);
-        String filmName = rentFound.getFilm().getTitle();
-        Film filmFound = searchFilmByTitle(filmName);
-        filmFound.setStock(filmFound.getStock()+1);
-        rentFound.setCondition(Condition.DEVUELTO);
+    public Rent returnFilm (String clientName, String filmTitle) {
+        for (Rent rent : rentList) {
+            if (rent.getClient().getName().equals(clientName) && rent.getFilm().getTitle().equals(filmTitle) && rent.getCondition() != Condition.DEVUELTO) {
+                    rent.setCondition(Condition.DEVUELTO);
+                    rent.getFilm().setStock(rent.getFilm().getStock()+1);
+                    return rent;
+            }
+        }
+        return null;
     }
 
-    public void filmsReturnToday(){
-        for (Rent rent  : rentList) {
-            if(rent.getReturnDate() == LocalDate.now())
-                System.out.println(rent.toString());
-        }
-    }
 
     @Override
     public String toString() {
